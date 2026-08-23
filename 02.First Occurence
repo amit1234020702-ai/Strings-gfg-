@@ -1,7 +1,7 @@
 Input: txt = "GeeksForGeeks", pat = "Fr"
 Output: -1
 Input: txt = "GeeksForGeeks", pat = "For"
-Output: 5
+Output: 5                                     ///yt link=https://www.youtube.com/watch?v=hgPkF3b6z-k
 
 t:o(n)
 s:o(1)
