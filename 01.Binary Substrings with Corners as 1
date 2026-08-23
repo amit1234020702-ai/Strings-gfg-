@@ -1,0 +1,20 @@
+Input: s = "1111"
+Output: 6
+
+Input: s = "01101"
+Output: 3
+
+class Solution {
+    public int binarySubstring(String s) {
+        int count=0;
+        int ans=0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='1'){
+                ans=ans+count;
+                count++;
+            }
+        }
+        return ans;
+        
+    }
+}
