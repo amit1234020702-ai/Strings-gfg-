@@ -23,3 +23,33 @@ class Solution {
         
     }
 }
+///////////////////////////
+// t:o(n)
+// s:o(1)
+
+
+class Solution {
+    int firstOccurence(String txt, String pat) {
+        // if(txt.length()==1){
+        //     if(txt.equals(pat)) return 0;
+        //     else return -1;
+        // }
+        // for(int i=0;i<=txt.length()-pat.length();i++){
+        //     String temp=txt.substring(i,i+pat.length());
+        //     if(temp.equals(pat)){
+        //         return i;
+        //     }
+        // }
+        // return -1;
+        
+        int n=txt.length();   //yt link=https://www.youtube.com/watch?v=nYLv2BpoxIA&t=38s
+        int m=pat.length();
+        for(int i=0;i<n-m+1;i++){
+            if(txt.substring(i,i+m).equals(pat))
+            return i;
+           // return -1;
+        }
+         return -1;
+        
+    }
+}
