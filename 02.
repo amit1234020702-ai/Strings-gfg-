@@ -1,0 +1,25 @@
+Input: txt = "GeeksForGeeks", pat = "Fr"
+Output: -1
+Input: txt = "GeeksForGeeks", pat = "For"
+Output: 5
+
+t:o(n)
+s:o(1)
+
+
+class Solution {
+    int firstOccurence(String txt, String pat) {
+        if(txt.length()==1){
+            if(txt.equals(pat)) return 0;
+            else return -1;
+        }
+        for(int i=0;i<=txt.length()-pat.length();i++){
+            String temp=txt.substring(i,i+pat.length());
+            if(temp.equals(pat)){
+                return i;
+            }
+        }
+        return -1;
+        
+    }
+}
