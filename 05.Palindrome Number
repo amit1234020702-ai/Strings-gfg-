@@ -1,0 +1,37 @@
+Input: n = 555
+Output: true
+
+class Solution {
+    public boolean isPalindrome(int n) {
+    //     // code here
+    //   // if(n<0){
+    //     //    return false;
+        
+    // //}
+    //   n = Math.abs(n);
+    // int original=n;
+    // int reverse=0;
+    // while(n>0){
+    //     int digit=n%10;
+    //     reverse= reverse*10+digit;
+    //     n=n/10;
+    // }
+    // return  original==reverse;
+
+
+
+///second method
+    n=Math.abs(n);
+    String s=n+"";
+    int left=0;
+    int right=s.length()-1;
+    while(left<right){
+        if(s.charAt(left)!=s.charAt(right)){
+            return false;
+        }
+        left++;
+        right--;
+    }
+    return true;
+    }
+}
