@@ -1,0 +1,48 @@
+Input: s = "geeks"
+Output: false
+Input: s = "machine"
+Output: true
+
+
+
+Time Complexity: O(n) average
+Space Complexity: O(n)
+
+
+class Solution {
+    // Function to check if a string is Isogram or not.
+    static boolean isIsogram(String data) {
+        
+        HashSet<Character> set=new HashSet<>();
+        for(int i=0;i<data.length();i++){
+            char ch=data.charAt(i);
+            if(set.contains(ch)){
+                return false;
+            }
+            set.add(ch);
+            
+        }
+        return true;
+    }
+}
+//////////////////////////////////////
+
+Time: O(n)
+Space: O(1)
+class Solution {
+    public boolean isIsogram(String s) {
+        boolean[] seen = new boolean[256];
+
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+
+            if (seen[ch]) {
+                return false;
+            }
+
+            seen[ch] = true;
+        }
+
+        return true;
+    }
+}
