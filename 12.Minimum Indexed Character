@@ -1,0 +1,22 @@
+Input: s1 = "geeksforgeeks", s2 = "set"
+Output: 1
+
+Input: s1 = "geeks", s2 = "hop"
+Output: -1
+
+class Solution {
+    public static int minIndexChar(String s1, String s2) {
+        // code here
+        boolean[] present=new boolean[26];
+        for(int i=0;i<s2.length();i++){ 
+            present[s2.charAt(i)-'a']=true;
+            
+        }
+        for(int i=0;i<s1.length();i++){ 
+            if(present[s1.charAt(i)-'a']){ 
+                return i;
+            }
+        }
+        return -1;
+    }
+}
