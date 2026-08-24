@@ -1,0 +1,50 @@
+Input: s = "geeksforgeeks"
+Output: 0
+Input: s = "abcd"
+Output: -1
+
+class Solution {
+    static int repeatedCharacter(String s) {
+        HashSet<Character> set=new HashSet<>();
+        int ans=-1;
+        for(int i=s.length()-1;i>=0;i--){
+        char ch=s.charAt(i);
+        if(set.contains(ch)){
+            ans=i;
+        }
+        set.add(ch);
+        
+       }
+      return ans;
+    }
+}
+/////////////////////////////////
+
+n
+1
+class Solution {
+    static int repeatedCharacter(String s) {
+        int[] freq = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+            int index = s.charAt(i) - 'a';
+
+            if (freq[index] > 0) {
+                return getFirstIndex(s, s.charAt(i));
+            }
+
+            freq[index]++;
+        }
+
+        return -1;
+    }
+
+    static int getFirstIndex(String s, char ch) {
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ch) {
+                return i;
+            }
+        }
+        return -1;
+    }
+}
