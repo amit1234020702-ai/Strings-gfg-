@@ -1,0 +1,32 @@
+Input: n = 10
+Output: 33
+
+Input: n = 21
+Output: 222
+
+class Solution {
+    public int primeDigits(int n) {
+        int ans = 0;
+        int place = 1;
+
+        while (n > 0) {
+            int rem = n % 4;
+
+            if (rem == 1) {
+                ans += 2 * place;
+            } else if (rem == 2) {
+                ans += 3 * place;
+            } else if (rem == 3) {
+                ans += 5 * place;
+            } else {
+                ans += 7 * place;
+                n -= 1;
+            }
+
+            n /= 4;
+            place *= 10;
+        }
+
+        return ans;
+    }
+}
