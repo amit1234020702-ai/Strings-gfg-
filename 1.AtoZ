@@ -1,0 +1,272 @@
+1. Reverse a String
+hello → olleh
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "hello";
+        String rev = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev = rev + str.charAt(i);
+        }
+
+        System.out.println(rev);
+    }
+}
+
+
+////////////////////////////////////////////////////
+2. Check Palindrome String
+madam → Palindrome
+hello → Not Palindrome
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "madam";
+        String rev = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            rev = rev + str.charAt(i);
+        }
+
+        if (str.equals(rev)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not Palindrome");
+        }
+    }
+}
+
+
+////////////////////////////////////////////////////////////////
+3. Count Frequency of Each Character
+hello
+h = 1
+e = 1
+l = 2
+o = 1
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "hello";
+
+        int[] freq = new int[256];
+
+        for (int i = 0; i < str.length(); i++) {
+            freq[str.charAt(i)]++;
+        }
+
+        for (int i = 0; i < 256; i++) {
+            if (freq[i] > 0) {
+                System.out.println((char)i + " = " + freq[i]);
+            }
+        }
+    }
+}
+/////////////////////////////////////////////////////
+4. Find Duplicate Characters
+programming
+r
+g
+m
+
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "programming";
+
+        int[] freq = new int[256];
+
+        for (int i = 0; i < str.length(); i++) {
+            freq[str.charAt(i)]++;
+        }
+
+        System.out.println("Duplicate characters:");
+
+        for (int i = 0; i < 256; i++) {
+            if (freq[i] > 1) {
+                System.out.println((char)i);
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////
+5. First Non-Repeating Character
+aabbcde =c
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "aabbcde";
+
+        int[] freq = new int[256];
+
+        // Count frequency
+        for (int i = 0; i < str.length(); i++) {
+            freq[str.charAt(i)]++;
+        }
+
+        // Find first non-repeating
+        for (int i = 0; i < str.length(); i++) {
+
+            if (freq[str.charAt(i)] == 1) {
+                System.out.println("First non-repeating character: "
+                        + str.charAt(i));
+                break;
+            }
+        }
+    }
+}
+/////////////////////////////////////////
+6. Check Anagram
+listen
+silent
+public class Main {
+    public static void main(String[] args) {
+
+        String str1 = "listen";
+        String str2 = "silent";
+
+        if (str1.length() != str2.length()) {
+            System.out.println("Not Anagram");
+            return;
+        }
+
+        int[] freq = new int[256];
+
+        for (int i = 0; i < str1.length(); i++) {
+            freq[str1.charAt(i)]++;
+            freq[str2.charAt(i)]--;
+        }
+
+        boolean isAnagram = true;
+
+        for (int i = 0; i < 256; i++) {
+            if (freq[i] != 0) {
+                isAnagram = false;
+                break;
+            }
+        }
+
+        if (isAnagram) {
+            System.out.println("Anagram");
+        } else {
+            System.out.println("Not Anagram");
+        }
+    }
+}
+////////////////////////////////////////////////
+7. Remove Duplicate Characters
+programming
+progamin
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "programming";
+
+        boolean[] visited = new boolean[256];
+
+        String result = "";
+
+        for (int i = 0; i < str.length(); i++) {
+
+            char ch = str.charAt(i);
+
+            if (!visited[ch]) {
+                result = result + ch;
+                visited[ch] = true;
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+//////////////////////////////////////////////////////
+
+8. Check String Rotation
+String 1 = "abcd"
+String 2 = "cdab"
+public class Main {
+    public static void main(String[] args) {
+
+        String str1 = "abcd";
+        String str2 = "cdab";
+
+        if (str1.length() != str2.length()) {
+            System.out.println("Not Rotation");
+            return;
+        }
+
+        String temp = str1 + str1;
+
+        if (temp.contains(str2)) {
+            System.out.println("Rotation");
+        } else {
+            System.out.println("Not Rotation");
+        }
+    }
+}
+////////////////////////////////////////////////////////
+9. Reverse Words in a String
+"I love Java"
+"Java love I"
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "I love Java";
+
+        String[] words = str.split(" ");
+
+        String result = "";
+
+        for (int i = words.length - 1; i >= 0; i--) {
+
+            result = result + words[i];
+
+            if (i != 0) {
+                result = result + " ";
+            }
+        }
+
+        System.out.println(result);
+    }
+}
+/////////////////////////////////////////////////////
+10. Longest Substring Without Repeating Characters
+abcabcbb
+3
+import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+
+        String str = "abcabcbb";
+
+        HashSet<Character> set = new HashSet<>();
+
+        int left = 0;
+        int maxLength = 0;
+
+        for (int right = 0; right < str.length(); right++) {
+
+            char ch = str.charAt(right);
+
+            while (set.contains(ch)) {
+                set.remove(str.charAt(left));
+                left++;
+            }
+
+            set.add(ch);
+
+            maxLength = Math.max(maxLength, right - left + 1);
+        }
+
+        System.out.println("Longest length: " + maxLength);
+    }
+}
+///////////////////////////////////////////////////////
+
+
+
+
+
