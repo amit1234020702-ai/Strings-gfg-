@@ -53,3 +53,30 @@ class Solution {
         
     }
 }
+////////////////////////////////////////
+
+class Solution {
+    public int strStr(String haystack, String needle) {
+
+        // Har possible starting position check karo
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+
+            int j = 0;
+
+            // Needle ke characters match karo
+            while (j < needle.length() &&
+                   haystack.charAt(i + j) == needle.charAt(j)) {
+
+                j++;
+            }
+
+            // Pura needle match ho gaya
+            if (j == needle.length()) {
+                return i;
+            }
+        }
+
+        // Needle nahi mila
+        return -1;
+    }
+}
