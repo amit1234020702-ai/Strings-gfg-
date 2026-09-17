@@ -3,7 +3,7 @@ Output: 6
 
 Input: s = "01101"
 Output: 3
-
+ 
 class Solution {
     public int binarySubstring(String s) {
         int count=0;
