@@ -33,7 +33,7 @@ public class Main {
         if (str.equals(rev)) {
             System.out.println("Palindrome");
         } else {
-            System.out.println("Not Palindrome");
+            System.out.println("Not Palindrome"); 
         }
     }
 }
